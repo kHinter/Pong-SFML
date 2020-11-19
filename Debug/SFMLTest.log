@@ -1,0 +1,51 @@
+﻿  Events.cpp
+  ball.cpp
+C:\Users\kevke\source\repos\C++\SFMLTest\SFMLTest\src\ball.cpp(18,20): warning C4244: 'argument' : conversion de 'const double' en 'size_t', perte possible de données
+C:\Users\kevke\source\repos\C++\SFMLTest\SFMLTest\src\ball.cpp(29,44): warning C4244: 'argument' : conversion de 'double' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\kevke\source\repos\C++\SFMLTest\SFMLTest\src\ball.cpp(29,41): warning C4244: 'argument' : conversion de 'double' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\kevke\source\repos\C++\SFMLTest\SFMLTest\src\ball.cpp(67,29): warning C4244: '=' : conversion de 'double' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\kevke\source\repos\C++\SFMLTest\SFMLTest\src\ball.cpp(72,72): warning C4244: 'argument' : conversion de 'double' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+  main.cpp
+C:\Users\kevke\source\repos\C++\SFMLTest\SFMLTest\src\main.cpp(13,44): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\kevke\source\repos\C++\SFMLTest\SFMLTest\src\main.cpp(14,83): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\kevke\source\repos\C++\SFMLTest\SFMLTest\src\main.cpp(14,35): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+C:\Users\kevke\source\repos\C++\SFMLTest\SFMLTest\src\main.cpp(32,59): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\kevke\source\repos\C++\SFMLTest\SFMLTest\src\main.cpp(55,76): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
+          with
+          [
+              T=int
+          ]
+  Génération de code en cours...
+  SFMLTest.vcxproj -> C:\Users\kevke\source\repos\C++\SFMLTest\Debug\SFMLTest.exe
