@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <random>
+#include <iostream>
 
 #include "dottedLine.hpp"
 #include "ball.hpp"
@@ -30,6 +31,16 @@ int main()
 
 	dottedLine middleLine(sf::Vector2f(6, 20), 15, 20, dottedLine::Axis::y);
 	middleLine.setPosition(sf::Vector2f(window.getSize().x/2 - 3, 10));
+
+	sf::Font font;
+	if (!font.loadFromFile("counter.ttf"))
+	{
+		std::cerr << "Cannot open this file !" << std::endl;
+	}
+
+	constexpr std::size_t textSize = 50;
+	sf::Text PlayerCounter("0", font, textSize);
+	sf::Text AICounter("0", font, textSize);
 
 	Ball ball(10.f);
 	ball.setSpeed(6.f);

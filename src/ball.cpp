@@ -11,25 +11,6 @@ Ball::Ball(float radius)
 	: m_radius(radius), m_bounds(-m_radius, -m_radius, m_radius, m_radius)
 {
 	assert(m_radius > 0.0);
-	
-	constexpr double vertexCount = 360; //number of vertex to draw
-
-	m_vertices.setPrimitiveType(sf::TrianglesFan);
-	m_vertices.resize(vertexCount);
-
-	//initialise the center
-	m_vertices[0].position = sf::Vector2f(0, 0);
-
-	double vertexAngle = 360 / vertexCount;
-	double angle = 360;
-	for (std::size_t i = 1; i < vertexCount; ++i)
-	{
-		double x = std::cos(angle) * m_radius;
-		double y = std::sin(angle) * m_radius;
-
-		m_vertices[i].position = sf::Vector2f(x, y);
-		angle -= vertexAngle;
-	}
 }
 
 void Ball::setSpeed(float speed)
@@ -47,12 +28,12 @@ float Ball::getSpeed() const
 	return m_speed;
 }
 
-sf::FloatRect Ball::getLocalBounds() const
+const sf::FloatRect& Ball::getLocalBounds() const
 {
 	return m_bounds;
 }
 
-sf::FloatRect Ball::getGlobalBounds() const
+const sf::FloatRect& Ball::getGlobalBounds() const
 {
 	return getTransform().transformRect(getLocalBounds());
 }
@@ -87,7 +68,7 @@ void Ball::update()
 	std::clog << "Ball x : " << getPosition().x << "\tBall y : " << getPosition().y << std::endl;
 }
 
-void Ball::update(const sf::Shape& shape1, const sf::Shape& shape2)
+void Ball::update(const sf::RectangleShape& shape1, const sf::RectangleShape& shape2)
 {
 	//check if the ball collide to a shape
 	if (getGlobalBounds().intersects(shape1.getGlobalBounds()) || getGlobalBounds().intersects(shape2.getGlobalBounds()))
@@ -110,13 +91,29 @@ void Ball::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	target.draw(m_vertices, states);
 }
 
-namespace test
+void Ball::initVertices()
 {
-	void ball_get_transformations()
+	constexpr double vertexCount = 360; //number of vertices to draw
+
+	m_vertices.setPrimitiveType(sf::TrianglesFan);
+	m_vertices.resize(vertexCount);
+
+	//initialise the center
+	m_vertices[0].position = sf::Vector2f(0, 0);
+
+	double vertexAngle = 360 / vertexCount;
+	double angle = 360;
+	for (std::size_t i = 1; i < vertexCount; ++i)
 	{
-		Ball ball(10.f);
-		ball.setPosition(0, 0);
-		auto position = ball.getPosition();
-		assert(ball.getPosition() == sf::Vector2f(0, 0));
+		double x = std::cos(angle) * m_radius;
+		double y = std::sin(angle) * m_radius;
+
+		m_vertices[i].position = sf::Vector2f(x, y);
+		angle -= vertexAngle;
 	}
+}
+
+void Ball::calculateReboundTrajectory()
+{
+
 }
